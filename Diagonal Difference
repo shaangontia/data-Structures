@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+/* 
+  Given a square matrix of size N x N, calculate the absolute difference between the sums of its diagonals.
+*/
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Read input from STDIN. Print output to STDOUT.
+          The program takes 2 inputs, first : dimension of the matrix and second : the values of the matrix.
+        */
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[][] arr = new int[n][n];
+        int primaryDiagonal=0,secondaryDiagonal=0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = scanner.nextInt();
+            }
+        }
+        for (int i =0; i < n; i++) {
+            primaryDiagonal += arr[i][i];
+            secondaryDiagonal += arr[i][n-i-1];
+        }
+        System.out.println(Math.abs(primaryDiagonal - secondaryDiagonal));
+    }
+}
