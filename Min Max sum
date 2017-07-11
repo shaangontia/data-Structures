@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+/*
+  The program prints two space-separated long integers denoting the respective minimum and maximum values that can be calculated by 
+  summing exactly four of the five integers.
+*/
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long[] arr = new long[5];
+        long min=0,max=0, sum=0;
+        for(int arr_i=0; arr_i < 5; arr_i++){
+            arr[arr_i] = in.nextLong();
+            if (arr_i == 0) {
+                min =  arr[arr_i];
+                max =  arr[arr_i];
+            }
+            if (arr[arr_i] > max) {
+                max = arr[arr_i];
+                 //System.out.println("max for" + arr_i + " = " + max);
+            }
+            
+            if (arr[arr_i] < min) {
+                min = arr[arr_i];
+               // System.out.println("min for" + arr_i + " = " + min);
+            }
+            sum +=arr[arr_i];
+        }
+        max = sum - Math.abs(max);
+        min = sum - Math.abs(min);
+        System.out.print(max + " " + min);
+    }
+}
