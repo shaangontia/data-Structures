@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static String kangaroo(int start1, int jump1, int start2, int jump2) {
+        // Complete this function
+        int location = start2 * jump1;
+        int positionFinal = start1 + jump1*start2;
+        if(jump1 > jump2 && ((start2-start1)%(jump1-jump2)) == 0) {
+            return "YES";
+        }else{
+            return "NO";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int x1 = in.nextInt();
+        int v1 = in.nextInt();
+        int x2 = in.nextInt();
+        int v2 = in.nextInt();
+        String result = kangaroo(x1, v1, x2, v2);
+        System.out.println(result);
+    }
+}
